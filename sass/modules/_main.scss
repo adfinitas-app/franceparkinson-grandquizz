@@ -3,28 +3,28 @@
 // --------------------------------------------------
 
 #main {
-	background:url(../images/bg-main.jpg) no-repeat center top; height:856px; position:relative; overflow:hidden;
+	background:url(../images/bg-main.jpg) no-repeat center center; position:relative; overflow:hidden;
 	.box-main {
-		width:370px; padding:70px 0 58px 0; background:$red01; color:$white; text-align:center; @include border-radius(10px); @include pos-abs(auto,auto,115px,50%); margin-left:-185px;
+		max-width:370px; background:$red01; color:$white; text-align:center; @include border-radius(10px);
 		.title {
-			font-family:$titilliumWeb; text-transform:uppercase; margin-bottom:45px;
+			font-family:$titilliumWeb; text-transform:uppercase;
 			span { display:block;}
-			span:first-child { @include font-size-line(21,16);}
-			span:first-child + span { @include font-size-line(36); font-weight:300; font-style:italic;}
-			span:first-child + span + span { @include font-size-line(63,53); font-weight:900;}
+			span:first-child + span { font-weight:300; font-style:italic;}
+			span:first-child + span + span { font-weight:900;}
 		}
 	}
 	.bt {
 		width:116px; height:38px; display:block; margin:0 auto; border:1px solid $white; @include border-radius(38px); text-align:center; color:$white; @include font-size-line(14,38); font-weight:800; text-transform:uppercase; background:$red01;
 		&:hover { color:$red01; background:$white; @extend %transition;}
+		& + .bt { margin-top:12px;}
 	}
 	input[name='jeune']:checked + label {
-	  color:$red01;
-	  background:$white;
-	  @extend %transition;
-	}
+		color:$red01;
+		background:$white;
+		@extend %transition;
+  	}
 	.box-thanks {
-		width:100%; padding:35px 10px; background:$red01; color:$white; text-align:center; @include pos-abs(auto,auto,0,0);
+		background:$red01; color:$white; text-align:center;
 		.title {
 			font-family:$openSans; text-transform:uppercase;
 			span { font-weight:800; display:block; margin-bottom:12px;}
@@ -39,7 +39,19 @@
 @include breakpoint(deskAllBlet) {
 
 #main {
+	height:856px;
+	.box-main {
+		margin-top:305px; padding:60px 0 50px 0;
+		.title {
+			margin-bottom:45px;
+			span:first-child { @include font-size-line(21,16);}
+			span:first-child + span { @include font-size-line(36);}
+			span:first-child + span + span { @include font-size-line(63,53);}
+		}
+	}
+
 	.box-thanks {
+		@include pos-abs(auto,auto,0,0); width:100%; padding:35px 10px; 
 		.title {
 			@include font-size-line(25);
 			span { @include font-size-line(50,40);}
@@ -56,7 +68,19 @@
 @include breakpoint(mobile) {
 
 #main {
+	 max-height:856px; padding:0 15px;
+	.box-main {
+		margin-bottom:30%;
+		.title {
+			margin-bottom:20px;
+			span:first-child { @include font-size-line(18,16);}
+			span:first-child + span { @include font-size-line(30);}
+			span:first-child + span + span { @include font-size-line(50,43);}
+		}
+	}
+
 	.box-thanks {
+		padding:30px 0 20px 0;
 		.title {
 			@include font-size-line(20);
 			span { @include font-size-line(40,30);}
@@ -64,5 +88,32 @@
 	}
 }
 
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles mobile portrait -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(mobilePortrait) {
+
+#main {
+	.box-main { margin-top:35%; margin-bottom:30%; padding:30px 0 20px 0;}
+	.box-thanks { margin-top:55%;}
+}
 
 }
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles mobile landscape -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(mobileLandscape) {
+
+#main {
+	.box-main { margin-top:3%; margin-bottom:10%; display:inline-block; padding:30px 20px 20px;}
+	.box-thanks { margin-top:10%; max-width:50%;}
+}
+ 
+}
+
+

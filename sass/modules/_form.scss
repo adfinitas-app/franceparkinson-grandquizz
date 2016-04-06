@@ -3,9 +3,9 @@
 // --------------------------------------------------
 
 #form {
-	background:url(../images/bg-form.jpg) no-repeat center top; height:922px; position:relative; overflow:hidden;
+	background:url(../images/bg-form.jpg) no-repeat center top; position:relative; overflow:hidden;
 	.box-form {
-		max-width:455px; background:$red01; color:$white; text-align:center; @include border-radius(10px); margin-top:225px;
+		max-width:455px; background:$red01; color:$white; text-align:center; @include border-radius(10px);
 		.txt { margin-bottom:22px;}
 		.form-line { margin-bottom:14px;}
 	}
@@ -23,8 +23,9 @@
 @include breakpoint(deskAllBlet) {
 
 #form {
+	height:922px;
 	.box-form {
-		padding:45px 0 50px 0;
+		padding:45px 0 50px 0; margin-top:225px;
 		.txt { @include font-size-line(20,24);}
 	}
 	.mentions { padding:0 90px;}
@@ -39,9 +40,9 @@
 @include breakpoint(mobile) {
 
 #form {
-	padding:0 15px;
+	padding:0 15px; max-height:922px;
 	.box-form {
-		padding:25px 10px 40px 10px;
+		padding:25px 10px 40px 10px; margin-top:30%; margin-bottom:30%;
 		.txt { @include font-size-line(18,22);}
 	}
 }
