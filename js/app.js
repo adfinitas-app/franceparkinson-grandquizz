@@ -27,6 +27,7 @@ function makeCorsRequest(data) {
   // Response handlers.
   xhr.onload = function() {
     var text = xhr.responseText;
+    alert("Vos réponses ont bien été prises en compte !");
   };
   // Error Handler
   xhr.onerror = function() {
@@ -42,16 +43,11 @@ function pureStr(value) {
       .replace(/"/g, "&quot;"));
 }
 
-function getResult() {
-  return (0); //TODO
-}
-
 function formToDb() {
-  var result = getResult();
   var data = {
     "schema": "parkinson",
     "db": {
-      //"jeune-58-ans": pureStr($("").html()), //TODO
+      "jeune-58-ans": pureStr($("input[name='jeune']:checked + label").html()),
       "sexe": pureStr($("select[name='type']").val()),
       "age": pureStr($("select[name='age']").val()),
       "q1": pureStr($("input[name='question-01']:checked + label").html()),
@@ -60,7 +56,6 @@ function formToDb() {
       "q4": pureStr($("input[name='question-04']:checked + label").html()),
       "q5": pureStr($("input[name='question-05']:checked + label").html()),
       "origin": "quiz",
-      "score": result,
       "civility": pureStr($("select[name='civility']").val()),
       "firstname": pureStr($("input[name='firstname']").val()),
       "lastname": pureStr($("input[name='lastname']").val()),
@@ -77,7 +72,7 @@ function formToDb() {
       "event": {
 	"name": "Quiz",
 	"data": {
-	  //"jeune-58-ans": pureStr($("").html()), //TODO
+	  "jeune-58-ans": pureStr($("input[name='jeune']:checked + label").html()),
 	  "sexe": pureStr($("select[name='type']").val()),
 	  "age": pureStr($("select[name='age']").val()),
 	  "q1": pureStr($("input[name='question-01']:checked + label").html()),
@@ -86,13 +81,11 @@ function formToDb() {
 	  "q4": pureStr($("input[name='question-04']:checked + label").html()),
 	  "q5": pureStr($("input[name='question-05']:checked + label").html()),
 	  "origin": "quiz",
-	  "score": result
 	}
       }
     }
   }
-  console.log(data);
-  //makeCorsRequest(data);
+  makeCorsRequest(data);
 }
 
 function isValidEmail(email) {
@@ -103,7 +96,6 @@ function isValidEmail(email) {
 function removeClass()
 {
   if ($(this).attr("type") == "radio") {
-    console.log($(this).attr("name"));
     $("input[name=" + $(this).attr("name") + "]").parent().removeClass("error");
   } else {
     $(this).parent().removeClass("error");
@@ -138,8 +130,6 @@ function isValid() {
 	  status = false;
 	}
       } else {
-	console.log($(this).val());
-	console.log($(this).attr("type"));
 	if ($(this).val() == "" || $(this).val() == null ||
 	    ($(this).attr("type") == "email" && isValidEmail($(this).val()) == false)) {
 	  showError($(this));
@@ -158,8 +148,6 @@ function launch() {
     e.preventDefault();
     if (isValid()) {
       formToDb();
-    } else {
-      console.log("Form not valid")
     }
   });
 }

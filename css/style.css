@@ -335,6 +335,10 @@ fieldset {
   transform: rotate(360deg);
 }
 
+.box-main:not(.error) .error-msg {
+  display: none;
+}
+
 /* line 30, ../sass/common/_general.scss */
 .form-line:not(.error) .error-msg {
   display: none;
@@ -760,14 +764,12 @@ input[type="email"].input-txt {
   background: #b7182a;
 }
 /* line 19, ../sass/modules/_main.scss */
+#main input[name='jeune']:checked + label,
 #main .bt:hover {
   color: #b7182a;
   background: #fff;
 }
 /* line 20, ../sass/modules/_main.scss */
-#main .bt + .bt {
-  margin-top: 12px;
-}
 
 /*---------------------------------------------------------------------------------------------------*/
 /*-_-_-_-_-_-_- styles desktop tous et tablette - deskblet -_-_-_-_-_-_- */
