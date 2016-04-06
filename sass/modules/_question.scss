@@ -5,46 +5,28 @@
 .question {
 	position:relative; overflow:hidden;
 	.box-question {
-		width:455px; padding-bottom:55px; padding-top:50px; margin:0 auto; background:$white; color:$black; @include border-radius(10px); margin-top:220px;
+		max-width:455px; margin:0 auto; background:$white; color:$black; @include border-radius(10px); margin-top:220px;
 		.number {
-			color:$red01; font-family:$titilliumWeb; font-weight:300; @include font-size(25); margin-bottom:52px; text-align:center;
+			color:$red01; font-family:$titilliumWeb; font-weight:300; @include font-size(25); text-align:center;
 			span { font-weight:700;}
 		}
 		.title {
-			font-weight:600; @include font-size-line(20,24); margin-bottom:30px; text-align:center;
+			font-weight:600; margin-bottom:30px; text-align:center;
 			& + .form-line { margin-top:0}
 		}
 	}
 	.form-line {
-		margin-top:20px; margin-left:52px;
+		margin-top:20px;
 		input[type="radio"] { float:left; display:block; margin-top:3px;}
 		label { margin-left:28px; display:block;}
 	}
 	.bt-next { margin-top:34px;}
 
-	&#question-01 {
-		background:url(../images/bg-question-01.jpg) no-repeat center top; height:867px;
-		.box-question .title { padding:0 90px;}
-		.form-line { margin-right:52px;}
-	}
-	&#question-02 {
-		background:url(../images/bg-question-02.jpg) no-repeat center top; height:877px;
-		.box-question .title { padding:0 90px;}
-		.form-line { margin-right:92px;}
-	}
-	&#question-03 {
-		background:url(../images/bg-question-03.jpg) no-repeat center top; height:870px;
-		.box-question .title { padding:0 50px;}
-	}
-	&#question-04 {
-		background:url(../images/bg-question-04.jpg) no-repeat center top; height:878px;
-		.box-question .title { padding:0 40px;}
-		.form-line { margin-right:130px;}
-	}
-	&#question-05 {
-		background:url(../images/bg-question-05.jpg) no-repeat center top; height:905px;
-		.box-question .title { padding:0 90px;}
-	}
+	&#question-01 { background:url(../images/bg-question-01.jpg) no-repeat center top; height:867px;}
+	&#question-02 { background:url(../images/bg-question-02.jpg) no-repeat center top; height:877px;}
+	&#question-03 { background:url(../images/bg-question-03.jpg) no-repeat center top; height:870px;}
+	&#question-04 { background:url(../images/bg-question-04.jpg) no-repeat center top; height:878px;}
+	&#question-05 { background:url(../images/bg-question-05.jpg) no-repeat center top; height:905px;}
 }
 
 
@@ -53,6 +35,32 @@
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(deskAllBlet) {
 
+.question {
+	&#question-01 {
+		.box-question .title { padding:0 90px;}
+		.form-line { margin-right:52px;}
+	}
+	&#question-02 {
+		.box-question .title { padding:0 90px;}
+		.form-line { margin-right:92px;}
+	}
+	&#question-03 {
+		.box-question .title { padding:0 50px;}
+	}
+	&#question-04 {
+		.box-question .title { padding:0 40px;}
+		.form-line { margin-right:130px;}
+	}
+	&#question-05 {
+		.box-question .title { padding:0 90px;}
+	}
+	.box-question {
+		padding-bottom:55px; padding-top:50px;
+		.number { margin-bottom:52px;}
+		.title { @include font-size-line(20,24);}
+	}
+	.form-line { margin-left:52px}
+}
 
 }
 
@@ -112,5 +120,15 @@
 /*-_-_-_-_-_-_- styles mobile -_-_-_-_-_-_- */
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(mobile) {
+
+.question {
+	padding:0 15px;
+	.box-question {
+		 padding-bottom:30px; padding-top:30px;
+		 .number { margin-bottom:30px;}
+		 .title { padding:0 20px; @include font-size-line(18,22);}
+	}
+	.form-line { margin-right:15px; margin-left:30px;}
+}
 
 }

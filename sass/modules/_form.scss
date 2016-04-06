@@ -5,16 +5,15 @@
 #form {
 	background:url(../images/bg-form.jpg) no-repeat center top; height:922px; position:relative; overflow:hidden;
 	.box-form {
-		width:455px; padding:45px 0 50px 0; background:$red01; color:$white; text-align:center; @include border-radius(10px); margin-top:225px;
-		.txt { @include font-size-line(20,24); margin-bottom:22px;}
+		max-width:455px; background:$red01; color:$white; text-align:center; @include border-radius(10px); margin-top:225px;
+		.txt { margin-bottom:22px;}
 		.form-line { margin-bottom:14px;}
 	}
 	.bt-submit {
 		width:178px; height:46px; display:block; margin:0 auto; border:0; @include border-radius(46px); text-align:center; color:$white; @include font-size-line(18,46); font-weight:600; text-transform:uppercase; background:$black; font-family:$openSans; margin-bottom:30px; @extend %transition;
 		&:hover { color:$black; background:$white;}
 	}
-	.mentions { color:$white; @include font-size-line(12,15); padding:0 90px;}
-	
+	.mentions { color:$white; @include font-size-line(12,15);}
 }
 
 
@@ -23,64 +22,28 @@
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(deskAllBlet) {
 
+#form {
+	.box-form {
+		padding:45px 0 50px 0;
+		.txt { @include font-size-line(20,24);}
+	}
+	.mentions { padding:0 90px;}
+}
 
 }
 
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop tous -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(desktopAll) {
-
-
-}
-
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop large-_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(desktopLarge) {
-
-
-}
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop petit et tablette -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(deskSmallBlet) {
-
-
-}
-
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop petit -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(desktopSmall) {
-
-
-}
-
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles tablette -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(tablet) {
-
-
-}
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles tablette et mobile - tabile -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(tabile) {
-
-
-}
 
 /*---------------------------------------------------------------------------------------------------*/
 /*-_-_-_-_-_-_- styles mobile -_-_-_-_-_-_- */
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(mobile) {
+
+#form {
+	padding:0 15px;
+	.box-form {
+		padding:25px 10px 40px 10px;
+		.txt { @include font-size-line(18,22);}
+	}
+}
 
 }
