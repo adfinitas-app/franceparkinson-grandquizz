@@ -1,0 +1,32 @@
+//
+// radio custom
+// --------------------------------------------------
+
+.radio-custom {
+
+    /* Cachons la case à cocher */
+    &:not(:checked),
+    &:checked { @include pos-abs(null,null,null,-9999px);}
+
+    /* on prépare le label */
+    &:not(:checked) + label,
+    &:checked + label { position:relative; padding-left:28px; cursor:pointer;}
+
+    /* Aspect des checkboxes et de la coche */
+    &:not(:checked) + label:before,
+    &:checked + label:before,
+     &:not(:checked) + label:after,
+    &:checked + label:after { content:''; @include pos-abs(2px,null,null,0); width:16px; height:16px; @include border-radius(16px); @include inline-block; background:$white; @include box-sizing(border-box);}
+    
+    /* Aspect des checkboxes */
+    &:not(:checked) + label:before,
+    &:checked + label:before { border:1px solid #a69d8c;}
+
+    /* Aspect général de la coche */
+    &:not(:checked) + label:after,
+    &:checked + label:after { border:5px solid $red01; @include transition(all .1s);}
+
+    /* Aspect si "pas cochée" ou si "cochée" */
+    &:not(:checked) + label:after { opacity:0;}
+    &:checked + label:after { opacity:1;}
+}
