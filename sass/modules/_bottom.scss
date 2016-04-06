@@ -1,34 +1,53 @@
 //
-// footer
+// styles
 // --------------------------------------------------
 
-
-#footer {
-	background:$white; padding:25px 0; text-align:center; border-top:1px solid $gray03;
-	.container-logo { float:left; margin-left:18px; text-align:left;}
+#bottom {
+	text-align:center; padding-top:40px; background:$white; position:relative; overflow:hidden;
 	.txt {
-		@include font-size-line(14,18);
-		&.center { text-align:center; margin-top:10px;}
+		font-family:$openSans;
+		&.default { margin-bottom:20px;}
+
+		&.help { font-weight:600; margin:48px 0 30px 0; color:$red01;}
+		&.thanks { margin-top:44px;}
 	}
-	.box-follow {
-		float:right; text-align:left;
-		.txt {  margin-right:3px;}
-		.bt-share {
-			@include inline-block; margin-right:8px; width:33px; height:33px; line-height:30px; @include border-radius(5px); text-align:center;background:$red01;
-			&:hover i { @extend %transition; @include rotate(360deg);}
+	.box-association {
+		max-width:410px; width:100%; display:table; table-layout:fixed; border:1px solid $gray03; @include border-radius(10px);
+		.row {
+			display:table-row;
+			&:first-child .cell { border-bottom:1px solid $gray03;}
+		}
+		.cell {
+			display:table-cell; vertical-align:middle; text-align:center; padding:0 12px; font-family:$openSans; color:$gray04;
+			&:first-child { border-right:1px solid $gray03;}
+			.title { font-weight:600; color:$red01; display:block; text-transform:uppercase; margin-top:5px;}
 		}
 	}
+	.bt-don {
+		padding:0 43px; height:66px; display:inline-block; @include border-radius(68px); color:$white; @include font-size-line(18,64); font-weight:600; text-transform:uppercase; background:$red01; border:1px solid $red01;
+		&:hover { color:$red01; background:$white; @extend %transition;}
+	}
 }
+
 
 /*---------------------------------------------------------------------------------------------------*/
 /*-_-_-_-_-_-_- styles desktop tous et tablette - deskblet -_-_-_-_-_-_- */
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(deskAllBlet) {
 
-#footer {
-	.box-follow {
-		margin-right:3px; margin-top:8px;
-		.txt { @include inline-block;}
+#bottom {
+	padding-bottom:190px;
+	.txt {
+		@include font-size-line(20,24); 
+		&.default:first-child,
+		&.default:first-child + .default { padding:0 100px;}
+		&.default:first-child + .default + .default { padding:0 200px;}
+
+		&.help { padding:0 130px;}
+		&.thanks { @include font-size-line(16,20);}
+	}
+	.box-association {
+		.cell { height:152px; @include font-size-line(14,18);}
 	}
 }
 
@@ -91,15 +110,15 @@
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(mobile) {
 
-#footer {
+#bottom {
+	padding:30px 15px 70px 15px;
 	.txt {
-		&.center { width:100%; clear:both; padding-top:15px;}
+		@include font-size-line(16,22);
+		&.thanks { @include font-size-line(15,18);}
 	}
-	.box-follow {
-		margin-right:18px; margin-top:-3px;
-		.txt { display:block; margin-bottom:5px;}
+	.box-association {
+		.cell { padding-top:15px; padding-bottom:15px; @include font-size-line(13,16); }
 	}
 }
-
 
 }

@@ -3,22 +3,22 @@
 // --------------------------------------------------
 
 #intro {
-	text-align:center; padding-bottom:94px; background:$white; position:relative; overflow:hidden;
+	text-align:center; background:$white; position:relative; overflow:hidden;
 	.title {
-		margin-bottom:25px; margin-top:120px; font-family:$titilliumWeb; text-transform:uppercase; @include font-size(40); color:$red01;
-		span { font-weight:900; @include font-size-line(100,60);}
+		margin-bottom:25px; font-family:$titilliumWeb; text-transform:uppercase; color:$red01;
+		span { font-weight:900;}
 	}
 	.subtitle {
-		font-family:$titilliumWeb; font-weight:700; text-transform:uppercase; @include font-size-line(22,26); margin-bottom:35px;
+		font-family:$titilliumWeb; font-weight:700; text-transform:uppercase; margin-bottom:35px;
 		span { display:block;}
 	}
 	.txt {
-		@include font-size-line(18,22); margin-bottom:30px;
+		margin-bottom:30px;
 		span { display:block;}
 	}
 	.container-select {
-		margin-bottom:60px;
-		.default-select { margin:0 9px;}
+		margin-bottom:50px;
+		.default-select { margin:0 9px 10px 9px;}
 	}	
 }
 
@@ -28,64 +28,32 @@
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(deskAllBlet) {
 
+#intro {
+	padding-bottom:94px;
+	.title {
+		margin-top:120px; @include font-size(40);
+		span { @include font-size-line(100,60);}
+	}
+	.subtitle { @include font-size-line(22,26);}
+	.txt { @include font-size-line(18,22);}
+}
 
 }
 
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop tous -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(desktopAll) {
-
-
-}
-
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop large-_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(desktopLarge) {
-
-
-}
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop petit et tablette -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(deskSmallBlet) {
-
-
-}
-
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles desktop petit -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(desktopSmall) {
-
-
-}
-
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles tablette -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(tablet) {
-
-
-}
-
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- styles tablette et mobile - tabile -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-@include breakpoint(tabile) {
-
-
-}
 
 /*---------------------------------------------------------------------------------------------------*/
 /*-_-_-_-_-_-_- styles mobile -_-_-_-_-_-_- */
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(mobile) {
+
+#intro {
+	padding:0 15px 50px 15px;
+	.title {
+		margin-top:30px; @include font-size(30);
+		span { @include font-size-line(80,40);}
+	}
+	.subtitle { @include font-size-line(20,24);}
+	.txt { @include font-size-line(16,20);}
+}
 
 }
