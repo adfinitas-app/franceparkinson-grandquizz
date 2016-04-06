@@ -3,7 +3,6 @@
 // --------------------------------------------------
 
 @import "compass/css3";
-@import '_flex';
 
 /*---------------------------------------------------------------------------------------------------*/
 /*-_-_-_-_-_-_- usefuls class -_-_-_-_-_-_- */
@@ -29,43 +28,6 @@
   } 
 }
 
-/*-------------------------------------------------------- */
-
-// clear
-// --------
-@mixin cl-100prc {
-  clear: both;
-  float: left;
-  width: 100%;
-}
-
-/*-------------------------------------------------------- */
-
-@mixin display-table ($width: 100%, $tlayout: fixed) {
-  display: table;
-  width: $width;
-  table-layout: $tlayout;
-}
-@mixin display-table-cell ($valign: middle, $talign: left) {
-  display: table-cell;
-  vertical-align: $valign;
-  text-align: $talign;
-}
-
-/*-------------------------------------------------------- */
-
-// center
-// --------
-@mixin center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@mixin center {
-  margin-left: auto;
-  margin-right: auto;
-}
 
 /*-------------------------------------------------------- */
 
@@ -118,24 +80,6 @@
 
 @mixin picto-style ($valign: middle) { @include inline-block($valign); background-repeat:no-repeat; background-position:0 0;}
 
-/*---------------------------------------------------------------------------------------------------*/
-/*-_-_-_-_-_-_- boutons -_-_-_-_-_-_- */
-/*---------------------------------------------------------------------------------------------------*/
-
-@mixin btn-rounded ($padding, $bradius, $fsize, $bgcolor) {
-  padding: $padding;
-  @include border-radius($bradius);
-  @include font($fsize, $Montserrat);
-  background-color: $bgcolor;
-  color: $white;
-  text-transform: uppercase;
-  text-decoration: none;
-  @include inline-block(middle);
-}
-/* exemple
-@include btn-rounded(14px 10px, 5px, 14, $grayDark02);
-*/
-
 
 /*---------------------------------------------------------------------------------------------------*/
 /*-_-_-_-_-_-_- triangle -_-_-_-_-_-_- */
@@ -172,6 +116,14 @@
 
   @if $point == mobile {
     @media screen and (max-width: $tabletWidth - 1) { @content; }
+  }
+
+  @if $point == mobilePortrait {
+    @media screen and (max-width: $tabletWidth - 1) and (orientation: portrait) { @content; }
+  }
+
+  @if $point == mobileLandscape {
+    @media screen and (max-width: $tabletWidth - 1) and (orientation: landscape) { @content; }
   }
 
   @else if $point == tabile {
