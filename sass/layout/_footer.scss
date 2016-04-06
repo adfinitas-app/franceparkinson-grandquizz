@@ -1,0 +1,21 @@
+//
+// footer
+// --------------------------------------------------
+
+
+#footer {
+	background:$white; padding:27px 0 22px 0; text-align:center;
+	.container-logo { float:left; margin-left:18px; text-align:left;}
+	.txt {
+		@include font-size-line(14,18);
+		&.center { text-align:center; margin-top:10px;}
+	}
+	.box-follow {
+		float:right; margin-right:3px; text-align:left; margin-top:8px;
+		.txt { @include inline-block; margin-right:3px;}
+		.bt-share {
+			@include inline-block; margin-right:8px; width:33px; height:33px; line-height:30px; @include border-radius(5px); text-align:center;background:$red01;
+			&:hover i { @extend %transition; @include rotate(360deg);}
+		}
+	}
+}

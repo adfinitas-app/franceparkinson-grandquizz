@@ -1,0 +1,90 @@
+//
+// styles
+// --------------------------------------------------
+
+#main {
+	background:url(../images/bg-main.jpg) no-repeat center top; height:856px; position:relative; overflow:hidden;
+	.box-main {
+		width:370px; padding:70px 0 58px 0; background:$red01; color:$white; text-align:center; @include border-radius(10px); @include pos-abs(auto,auto,115px,50%); margin-left:-185px;
+		.title {
+			font-family:$titilliumWeb; text-transform:uppercase; margin-bottom:45px;
+			span { display:block;}
+			span:first-child { @include font-size-line(21,16);}
+			span:first-child + span { @include font-size-line(36); font-weight:300; font-style:italic;}
+			span:first-child + span + span { @include font-size-line(63,53); font-weight:900;}
+		}
+	}
+	.bt {
+		width:116px; height:38px; display:block; margin:0 auto; border:1px solid $white; @include border-radius(38px); text-align:center; color:$white; @include font-size-line(14,38); font-weight:800; text-transform:uppercase; background:$red01;
+		&:hover { color:$red01; background:$white; @extend %transition;}
+		& + .bt { margin-top:12px;}
+	}
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles desktop tous et tablette - deskblet -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(deskAllBlet) {
+
+
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles desktop tous -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(desktopAll) {
+
+
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles desktop large-_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(desktopLarge) {
+
+
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles desktop petit et tablette -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(deskSmallBlet) {
+
+
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles desktop petit -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(desktopSmall) {
+
+
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles tablette -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(tablet) {
+
+
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles tablette et mobile - tabile -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(tabile) {
+
+
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles mobile -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(mobile) {
+
+}

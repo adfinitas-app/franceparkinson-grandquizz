@@ -1,0 +1,208 @@
+//
+// mixins
+// --------------------------------------------------
+
+@import "compass/css3";
+@import '_flex';
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- usefuls class -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+
+// Clearfix
+// --------
+
+@mixin clearfix {
+// Pour les navigateurs modernes
+&:before,
+&:after { 
+  content:"";
+  display:table; 
+  }
+  &:after { 
+    clear:both;
+  }
+
+// Pour IE 6/7 (trigger hasLayout)
+  &{ 
+  zoom:1;
+  } 
+}
+
+/*-------------------------------------------------------- */
+
+// clear
+// --------
+@mixin cl-100prc {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+/*-------------------------------------------------------- */
+
+@mixin display-table ($width: 100%, $tlayout: fixed) {
+  display: table;
+  width: $width;
+  table-layout: $tlayout;
+}
+@mixin display-table-cell ($valign: middle, $talign: left) {
+  display: table-cell;
+  vertical-align: $valign;
+  text-align: $talign;
+}
+
+/*-------------------------------------------------------- */
+
+// center
+// --------
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*-------------------------------------------------------- */
+
+// position absolute
+// --------
+@mixin pos-abs ($top: auto, $right: auto, $bottom: auto, $left: auto, $zindex: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $zindex;
+  position: absolute;
+}
+
+
+/*-------------------------------------------------------- */
+
+// font
+// --------
+@mixin font-size ($fsize: 14, $base: 16) {
+  font-size: $fsize + px;
+  font-size: ($fsize / $base) * 1rem;
+}
+
+@mixin line-height ($lheight: 16, $base: 16) {
+  line-height: $lheight + px;
+  line-height: ($lheight / $base) * 1rem;
+}
+
+@mixin font-size-line ($fsize: 16, $lheight: $fsize * 1.2) {
+    font-size: ($fsize) + px;
+    line-height: ($lheight) + px;
+    font-size: ($fsize / 16) + rem;
+    line-height: ($lheight / 16) + rem;
+}
+
+@mixin font ($fsize, $ffamily: $baseFontFamily, $fweight: normal) {
+  @include font-size-line ($fsize);
+  font-family: $ffamily;
+  font-weight: $fweight;
+}
+/* exemple :
+@include font02 (30, $MontserratRegFontFamily);
+*/
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- pictos (mixin à cause du problème avec extend à l'intérieur des media queries) -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+
+@mixin picto-style ($valign: middle) { @include inline-block($valign); background-repeat:no-repeat; background-position:0 0;}
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- boutons -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+
+@mixin btn-rounded ($padding, $bradius, $fsize, $bgcolor) {
+  padding: $padding;
+  @include border-radius($bradius);
+  @include font($fsize, $Montserrat);
+  background-color: $bgcolor;
+  color: $white;
+  text-transform: uppercase;
+  text-decoration: none;
+  @include inline-block(middle);
+}
+/* exemple
+@include btn-rounded(14px 10px, 5px, 14, $grayDark02);
+*/
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- triangle -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+
+@mixin triangle ($direction: "down", $size: 20px, $color: #000) {
+  width: 0; 
+  height: 0;
+  border-left: $size solid #{setTriangleColor($direction, "left", $color)};
+  border-right: $size solid #{setTriangleColor($direction, "right", $color)};
+  border-bottom: $size solid #{setTriangleColor($direction, "bottom", $color)};
+  border-top: $size solid #{setTriangleColor($direction, "top", $color)};
+}
+ 
+//Utility function to return the relevant colour depending on what type of arrow it is
+@function setTriangleColor($direction, $side, $color) { 
+  @if $direction == "left" and $side == "right" 
+  or  $direction == "right" and $side == "left" 
+  or $direction == "down" and $side == "top" 
+  or $direction == "up" and $side == "bottom" {
+    @return $color
+  } @else {
+    @return "transparent";
+  }
+ 
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- media queries -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+
+@mixin breakpoint($point, $value: 0) {
+
+  @if $point == mobile {
+    @media screen and (max-width: $tabletWidth - 1) { @content; }
+  }
+
+  @else if $point == tabile {
+    @media screen and (max-width: $desktopSmallWidth - 1) { @content; }
+  }
+
+  @else if $point == tablet {
+    @media screen and (min-width: $tabletWidth) and (max-width: $desktopSmallWidth - 1) { @content; }
+  }
+
+  @else if $point == desktopSmall {
+     @media screen and (min-width: $desktopSmallWidth) and (max-width: $desktopLargeWidth - 1) { @content; }
+  }
+
+  @else if $point == deskSmallBlet {
+     @media screen and (min-width: $tabletWidth) and (max-width: $desktopLargeWidth - 1) { @content; }
+  }
+
+  @else if $point == desktopLarge {
+     @media screen and (min-width: $desktopLargeWidth) { @content; }
+  }
+
+  @else if $point == desktopAll {
+     @media screen and (min-width: $desktopSmallWidth) { @content; }
+  }
+
+  @else if $point == deskAllBlet {
+    @media screen and (min-width: $tabletWidth) { @content; }
+  }
+
+  @else {
+    @media screen and ($point: $value) { @content; }
+  }
+}

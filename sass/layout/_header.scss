@@ -1,0 +1,28 @@
+//
+// header
+// --------------------------------------------------
+
+#header {
+	.container-logo { margin-left:93px; padding:15px 25px 18px; background:$white; display:inline-block; @include border-radius(0 0 10px 10px);}
+}
+
+.box-one-minute {
+	@include pos-abs(0,auto,auto,0); width:100%; text-align:center; border-top:10px solid $red01;
+	.txt {
+		display:inline-block; padding:15px 35px 28px 35px; background:$red01; color:$white; @include font-size(25); font-family:$titilliumWeb; font-weight:600; @include border-radius(0 0 10px 10px); position:relative;
+		.black { color:$black; font-weight:300;}
+		.corner-left,
+		.corner-right {
+		    z-index:1; position:absolute; height:50px; width:50px; overflow:hidden; top:-10px;
+		    &:after { content:''; z-index:1; position:absolute; top:-20px; height:40px; width:40px; background:transparent; border:solid 30px $red01;}
+		}
+		.corner-left {
+		    left:-40px;
+		    &:after { right:-20px; @include border-radius(0 50% 0 0);}
+		}
+		.corner-right {
+		    right:-40px;
+		    &:after { left:-20px; @include border-radius(50% 0 0 0);}
+		}
+	}
+}

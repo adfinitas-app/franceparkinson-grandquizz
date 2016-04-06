@@ -1,0 +1,18 @@
+//
+// pictos
+// --------------------------------------------------
+
+
+[class*="picto-"],
+[class*="logo-"],
+[class*="arrow-"] { @include picto-style;}
+
+/* arrows */
+.arrow-white-01 { width:40px; height:22px; background-image:url(../images/arrow-white-01.png);}
+
+/* pictos */
+.picto-facebook { width:11px; height:22px; background-image:url(../images/picto-facebook.png);}
+.picto-twitter { width:11px; height:22px; background-image:url(../images/picto-twitter.png);}
+
+/* logos */
+.logo-france-parkinson { width:152px; height:49px; background-image:url(../images/logo-france-parkinson.png);}

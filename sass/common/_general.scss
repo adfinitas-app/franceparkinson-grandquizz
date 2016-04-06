@@ -1,0 +1,66 @@
+//
+// general 
+// --------------------------------------------------
+
+/*-_-_-_-_-_-_- classes utiles -_-_-_-_-_-_- */
+.float-left { float:left;}
+.float-right { float:right;}
+.hidden { overflow:hidden; height:0}
+.text-center { text-align:center;}
+.text-underline {
+	text-decoration:underline;
+	&:hover { text-decoration:none;}
+}
+
+%transition { @include transition(all 0.3s ease 0s);}
+%hide-text { text-indent:-9999px; overflow:hidden;}
+
+
+.page-center { margin:0 auto; text-align:left; position:relative; @include clearfix;}
+
+.bt-next {
+	width:60px; height:60px; line-height:60px; display:block; margin:0 auto; @include border-radius(60px); text-align:center; background:$red01;
+	&:hover .arrow-white-01 { @extend %transition; @include rotate(360deg); }
+}
+
+.logo-france-parkinson { @extend %hide-text;}
+
+
+.form-line {
+	&:not(.error) .error-msg { display:none;}
+	&.error .error-msg { display:block; @include font-size-line(12); padding-top:4px;}
+}
+
+
+.default-select,
+.form-select {
+	@include inline-block; position:relative; background:$white;
+	&::after { content:""; display:inline-block; @include pos-abs(50%,17px,auto,auto,1); margin-top:-4px;}
+	select {
+		@include appearance(none); position:relative; z-index:2; background:none; display:block; width:100%;
+		&::-ms-expand { display:none;}
+	}
+}
+.default-select {
+	height:40px; width:232px; border:1px solid $gray01; @include border-radius(10px);
+	&::after { @include triangle("down", 9px, $red01);}
+	select { @include font-size-line(16,40); padding-left:14px; height:40px; }
+}
+.form-select {
+	height:30px; width:300px; @include border-radius(5px);
+	&::after { @include triangle("down", 9px, $black);}
+	select { border:0; @include font-size-line(16,30); height:30px; padding-left:8px; color:$gray02; font-family:$openSans; }
+}
+
+input[type="text"].input-txt,
+input[type="email"].input-txt { @include font-size-line(16,30); height:30px; width:300px; border:0; padding-left:8px; color:$gray02; font-family:$openSans; @include border-radius(5px); padding-right:8px; @include box-sizing(border-box);}
+
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-_-_-_-_-_-_- styles desktop tous -_-_-_-_-_-_- */
+/*---------------------------------------------------------------------------------------------------*/
+@include breakpoint(desktopAll) {
+
+.main-container { width:945px;}
+
+}

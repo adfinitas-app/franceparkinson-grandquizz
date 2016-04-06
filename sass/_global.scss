@@ -1,0 +1,22 @@
+//
+// global
+// --------------------------------------------------
+
+@import 'helpers/_variables';
+@import 'helpers/_mixins';
+
+@import 'base/_reset';
+//@import 'base/_fonts'; 
+
+@import 'common/_general';
+@import 'common/_pictos';
+
+@import 'layout/_header';
+@import 'layout/_footer';
+
+@import 'modules/_main'; 
+@import 'modules/_intro'; 
+@import 'modules/_question'; 
+@import 'modules/_form'; 
+
+
