@@ -70,7 +70,7 @@ function formToDb() {
 	"lastname": pureStr($("input[name='lastname']").val())
       },
       "event": {
-	"name": "Quiz",
+	"name": "JM16",
 	"data": {
 	  "jeune-58-ans": pureStr($("input[name='jeune']:checked + label").html()),
 	  "sexe": pureStr($("select[name='type']").val()),
