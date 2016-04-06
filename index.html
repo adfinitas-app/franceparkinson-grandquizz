@@ -10,6 +10,7 @@
     <meta name="keywords" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen">
+    <link href='css/parsley.css' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,300italic,400italic,600,600italic,700italic,700,900,200,200italic' rel='stylesheet' type='text/css'>
     <!--[if lt IE 9]>
@@ -19,6 +20,7 @@
 
 <body>
 
+<form id="mainForm" novalidate>
 
 <section id="main">
 	<header id="header" class="page-center main-container">
@@ -48,17 +50,17 @@
 	</p>
 	<p class="container-select">
 		<span class="default-select">
-			<select name="type">
-				<option value="default">Vous êtes</option>
+			<select name="type" required>
+				<option value="" disabled selected>Vous êtes</option>
 				<option value="man">un homme</option>
 				<option value="woman">une femme</option>
 			</select>
 		</span>
 		<span class="default-select">
-			<select name="age">
-				<option value="default">Votre âge</option>
-				<option value="">58 ans</option>
-				<option value="">59 ans</option>
+			<select name="age" required>
+				<option value="" disabled selected>Votre âge</option>
+				<option value="58">58 ans</option>
+				<option value="59">59 ans</option>
 			</select>
 		</span>
 	</p>
@@ -77,7 +79,7 @@
 		<p class="number">Question <strong>1</strong></p>
 		<h2 class="title">Pour vous, la maladie de parkinson est une</h2>
 		<div class="form-line">
-			<input type="radio" value="" name="question-01" id="question-01-01" /> 
+			<input type="radio" value="" name="question-01" id="question-01-01" required /> 
 			<label for="question-01-01">Maladie du mouvement</label>
 		</div>
 		<div class="form-line">
@@ -104,7 +106,7 @@
 		<p class="number">Question <strong>2</strong></p>
 		<h2 class="title">Pour vous, la maladie de parkinson touche :</h2>
 		<div class="form-line">
-			<input type="radio" value="" name="question-02" id="question-02-01" /> 
+			<input type="radio" value="" name="question-02" id="question-02-01" required/> 
 			<label for="question-02-01">Les personnes âgées (à partir de 70 ans environ)</label>
 		</div>
 		<div class="form-line">
@@ -131,7 +133,7 @@
 		<p class="number">Question <strong>3</strong></p>
 		<h2 class="title">Pensez-vous qu’une personne atteinte de la maladie de Parkinson puisse continuer à travailler ?</h2>
 		<div class="form-line">
-			<input type="radio" value="" name="question-03" id="question-03-01" /> 
+			<input type="radio" value="" name="question-03" id="question-03-01" required /> 
 			<label for="question-03-01">Oui</label>
 		</div>
 		<div class="form-line">
@@ -158,7 +160,7 @@
 		<p class="number">Question <strong>4</strong></p>
 		<h2 class="title">Selon vous, quels sont les symptômes de la maladie de Parkinson ?</h2>
 		<div class="form-line">
-			<input type="radio" value="" name="question-04" id="question-04-01" /> 
+			<input type="radio" value="" name="question-04" id="question-04-01" required /> 
 			<label for="question-04-01">La lenteur du mouvement</label>
 		</div>
 		<div class="form-line">
@@ -189,7 +191,7 @@
 		<p class="number">Question <strong>5</strong></p>
 		<h2 class="title">Etes-vous concerné par la maladie de Parkinson ?</h2>
 		<div class="form-line">
-			<input type="radio" value="" name="question-05" id="question-05-01" /> 
+			<input type="radio" value="" name="question-05" id="question-05-01" required /> 
 			<label for="question-05-01">Je suis moi-même malade</label>
 		</div>
 		<div class="form-line">
@@ -212,32 +214,35 @@
 		</p>
 		<div class="form-line">
 			<span class="form-select">
-				<select name="civility">
-					<option value="default">civilité</option>
-					<option value="">mlle</option>
-					<option value="">mme</option>
-					<option value="">mr</option>
+				<select name="civility" required>
+					<option value="" disabled selected>Civilité</option>
+					<option value="Mlle">Mlle</option>
+					<option value="Mme">Mme</option>
+					<option value="Mr">Mr</option>
 				</select>
 			</span>
 		</div>
 		<div class="form-line">
-			<input type="text" name="firstname" value="" placeholder="Prénom" class="input-txt" />
+			<input type="text" name="firstname" value="" placeholder="Prénom" class="input-txt" required />
 			<p class="error-msg">prénom invalide</p>
 		</div>
-		<div class="form-line error">
-			<input type="text" name="lastname" value="" placeholder="Nom" class="input-txt" />
+		<div class="form-line">
+			<input type="text" name="lastname" value="" placeholder="Nom" class="input-txt" required />
 			<p class="error-msg">nom invalide</p>
 		</div>
 		<div class="form-line">
-			<input type="email" name="email" value="" placeholder="Email" class="input-txt" />
+
+			<input type="email" name="email" value="" placeholder="Email" class="input-txt" required />
 			<p class="error-msg">email invalide</p>
 		</div>
-		<input type="submit" value="envoyer" class="bt-submit" />
+		<input type="submit" value="envoyer" class="bt-submit" required />
 		<p class="mentions">
 			En laissant mon email, j'accepte que France Parkinson me contacte pour m'informer de ses actions sur la maladie de Parkinson
 		</p>
 	</div>
 </section>
+
+</form>
 
 <footer id="footer" class="page-center main-container">
 	<p class="container-logo"><i class="logo-france-parkinson">France Parkinson</i></p>
@@ -252,6 +257,9 @@
 	</p>
 </footer>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="/js/parsley.min.js"></script>
+<script src="/js/es5-sham.min.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>
