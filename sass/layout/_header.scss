@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 #header {
-	.container-logo { margin-left:93px; padding:15px 25px 18px; background:$white; display:inline-block; @include border-radius(0 0 10px 10px);}
+	.container-logo { padding:15px 25px 18px; background:$white; display:inline-block; @include border-radius(0 0 10px 10px);}
 }
 
 .box-one-minute {
@@ -33,6 +33,10 @@
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(deskAllBlet) {
 
+#header {
+	.container-logo { margin-left:93px;} 
+}
+
 .box-one-minute {
 	.txt { padding:15px 35px 28px 35px; @include font-size(25);}
 }
@@ -44,6 +48,10 @@
 /*-_-_-_-_-_-_- styles mobile -_-_-_-_-_-_- */
 /*---------------------------------------------------------------------------------------------------*/
 @include breakpoint(mobile) {
+
+#header {
+	.container-logo { margin-left:-15px; margin-top:-8px; @include transform(scale(0.8));} 
+}
 
 .box-one-minute {
 	.txt { padding:5px 25px 15px 25px; @include font-size-line(22);}
