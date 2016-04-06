@@ -17,7 +17,11 @@
 	.bt {
 		width:116px; height:38px; display:block; margin:0 auto; border:1px solid $white; @include border-radius(38px); text-align:center; color:$white; @include font-size-line(14,38); font-weight:800; text-transform:uppercase; background:$red01;
 		&:hover { color:$red01; background:$white; @extend %transition;}
-		& + .bt { margin-top:12px;}
+	}
+	input[name='jeune']:checked + label {
+	  color:$red01;
+	  background:$white;
+	  @extend %transition;
 	}
 	.box-thanks {
 		width:100%; padding:35px 10px; background:$red01; color:$white; text-align:center; @include pos-abs(auto,auto,0,0);
