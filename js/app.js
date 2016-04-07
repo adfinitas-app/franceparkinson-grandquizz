@@ -58,7 +58,6 @@ function formToDb() {
   var data = {
     "schema": "parkinson",
     "db": {
-      "jeune-58-ans": pureStr($("input[name='jeune']:checked + label").html()),
       "sexe": pureStr($("select[name='type']").val()),
       "age": pureStr($("select[name='age']").val()),
       "q1": pureStr($("input[name='question-01']:checked + label").html()),
@@ -83,7 +82,6 @@ function formToDb() {
       "event": {
 	"name": "JM16",
 	"data": {
-	  "jeune-58-ans": pureStr($("input[name='jeune']:checked + label").html()),
 	  "sexe": pureStr($("select[name='type']").val()),
 	  "age": pureStr($("select[name='age']").val()),
 	  "q1": pureStr($("input[name='question-01']:checked + label").html()),
