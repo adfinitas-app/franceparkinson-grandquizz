@@ -52,7 +52,7 @@
 	}
 }
 .default-select {
-	height:40px; width:232px; border:1px solid $gray01; @include border-radius(10px);
+	height:40px; width:280px; border:1px solid $gray01; @include border-radius(10px);
 	&::after { @include triangle("down", 9px, $red01);}
 	select { @include font-size-line(16,40); padding-left:14px; height:40px; }
 }
