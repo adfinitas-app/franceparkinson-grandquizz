@@ -27,7 +27,7 @@ function makeCorsRequest(data) {
   // Response handlers.
   xhr.onload = function() {
     var text = xhr.responseText;
-    alert("Vos réponses ont bien été prises en compte !");
+    document.location.href = "/merci.html";
   };
   // Error Handler
   xhr.onerror = function() {
