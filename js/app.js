@@ -43,6 +43,17 @@ function pureStr(value) {
       .replace(/"/g, "&quot;"));
 }
 
+function getCheckboxValues(checkboxSelector) {
+  var len = $(checkboxSelector).length;
+  var answer = "";
+  $(checkboxSelector).each(function (index, elem) {
+    answer += $("#" + $(this).attr("id") + " + label").html();
+    if (index != len - 1)
+      answer += ", ";
+  });
+  return (answer);
+}
+
 function formToDb() {
   var data = {
     "schema": "parkinson",
@@ -53,7 +64,7 @@ function formToDb() {
       "q1": pureStr($("input[name='question-01']:checked + label").html()),
       "q2": pureStr($("input[name='question-02']:checked + label").html()),
       "q3": pureStr($("input[name='question-03']:checked + label").html()),
-      "q4": pureStr($("input[name='question-04']:checked + label").html()),
+      "q4": pureStr(getCheckboxValues($("input[name='question-04']:checked"))),
       "q5": pureStr($("input[name='question-05']:checked + label").html()),
       "origin": "quiz",
       "civility": pureStr($("select[name='civility']").val()),
@@ -78,7 +89,7 @@ function formToDb() {
 	  "q1": pureStr($("input[name='question-01']:checked + label").html()),
 	  "q2": pureStr($("input[name='question-02']:checked + label").html()),
 	  "q3": pureStr($("input[name='question-03']:checked + label").html()),
-	  "q4": pureStr($("input[name='question-04']:checked + label").html()),
+	  "q4": pureStr(getCheckboxValues($("input[name='question-04']:checked"))),
 	  "q5": pureStr($("input[name='question-05']:checked + label").html()),
 	  "origin": "quiz",
 	}
@@ -104,7 +115,7 @@ function removeClass()
 }
 
 function showError(elem) {
-  if (elem.attr("type") == "radio") {
+  if (elem.attr("type") == "radio" || elem.attr("type") == "checkbox") {
     $("input[name=" + elem.attr("name") + "]").parent().addClass("error");
     $("input[name=" + elem.attr("name") + "]").on("change", removeClass);
   } else {
@@ -122,8 +133,8 @@ function isValid() {
   $(".error").removeClass("error");;
   $("#mainForm input, #mainForm select").each(function() {
     if ($(this).attr("required") && $(this).attr != "submit") {
-      if ($(this).attr("type") == "radio") {
-	if ($("input[name=" + $(this).attr("name") + "]:checked").length != 1) {
+      if ($(this).attr("type") == "radio" || $(this).attr("type") == "checkbox") {
+	if ($("input[name=" + $(this).attr("name") + "]:checked").length == 0) {
 	  showError($(this));
 	  if (status == true)
 	    scrollToElem($(this));
