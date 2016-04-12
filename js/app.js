@@ -116,6 +116,9 @@ function showError(elem) {
   if (elem.attr("type") == "radio" || elem.attr("type") == "checkbox") {
     $("input[name=" + elem.attr("name") + "]").parent().addClass("error");
     $("input[name=" + elem.attr("name") + "]").on("change", removeClass);
+  } else if (elem.prop("tagName") == "SELECT") {
+    elem.parent().parent().addClass("error");
+    elem.on("change", removeClass);
   } else {
     elem.parent().addClass("error");
     elem.on("change", removeClass);
